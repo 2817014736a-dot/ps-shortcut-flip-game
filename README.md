@@ -2,6 +2,10 @@
 
 一个纯静态网页小游戏，通过翻牌配对练习 Photoshop 常用 Windows 快捷键。
 
+## 在线访问
+
+https://2817014736a-dot.github.io/ps-shortcut-flip-game/
+
 ## 本地预览
 
 直接打开 `index.html` 即可游玩。也可以在项目目录启动一个静态服务器后访问本地地址。
