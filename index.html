@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="PS 快捷键翻牌挑战：通过记忆配对练习 Photoshop 常用 Windows 快捷键。"
+    />
+    <title>PS 快捷键翻牌挑战</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <section class="hero screen is-active" id="start-screen" aria-labelledby="start-title">
+        <div class="hero-copy">
+          <p class="eyebrow">Photoshop Shortcut Memory</p>
+          <h1 id="start-title">PS 快捷键翻牌挑战</h1>
+          <p class="hero-text">
+            翻开卡牌，找出 Photoshop 功能和快捷键的正确组合。用最短时间完成全部配对吧。
+          </p>
+          <div class="hero-actions">
+            <button class="button primary" id="start-button" type="button">开始挑战</button>
+            <button class="button ghost" id="rules-button" type="button">查看规则</button>
+          </div>
+        </div>
+
+        <div class="hero-panel" aria-label="本轮挑战信息">
+          <div class="panel-topline">
+            <span>标准模式</span>
+            <strong>16 组 / 32 张</strong>
+          </div>
+          <div class="preview-grid" aria-hidden="true">
+            <span>画笔工具</span>
+            <span>B</span>
+            <span>复制图层</span>
+            <span>Ctrl + J</span>
+            <span>反选</span>
+            <span>Shift + Ctrl + I</span>
+          </div>
+          <p>工具、选择、颜色、保存和图层操作，一局刚好练到手熟。</p>
+        </div>
+      </section>
+
+      <section class="screen" id="rules-screen" aria-labelledby="rules-title">
+        <div class="topbar">
+          <button class="icon-button" id="rules-back-button" type="button" aria-label="返回开始页">
+            <span aria-hidden="true">‹</span>
+          </button>
+          <div>
+            <p class="eyebrow">Rules</p>
+            <h2 id="rules-title">游戏规则</h2>
+          </div>
+        </div>
+        <div class="rules-grid">
+          <article>
+            <h3>怎么玩</h3>
+            <p>每次翻开两张牌。功能名称和对应快捷键匹配成功后会保留，不匹配会自动翻回。</p>
+          </article>
+          <article>
+            <h3>怎么计分</h3>
+            <p>配对成功 +10，失败 -2。连续成功会额外加分，使用提示会扣 5 分。</p>
+          </article>
+          <article>
+            <h3>怎么通关</h3>
+            <p>找出全部 16 组组合后通关，页面会显示用时、尝试次数、错误次数、得分和评级。</p>
+          </article>
+        </div>
+        <button class="button primary wide" id="rules-start-button" type="button">开始挑战</button>
+      </section>
+
+      <section class="screen game-screen" id="game-screen" aria-labelledby="game-title">
+        <header class="game-header">
+          <div>
+            <p class="eyebrow">Standard Mode</p>
+            <h2 id="game-title">PS 快捷键翻牌挑战</h2>
+          </div>
+          <div class="game-actions">
+            <button class="button compact" id="hint-button" type="button">提示 3</button>
+            <button class="button compact ghost" id="restart-button" type="button">重开</button>
+          </div>
+        </header>
+
+        <div class="stats" aria-label="游戏统计">
+          <div>
+            <span>用时</span>
+            <strong id="time-value">00:00</strong>
+          </div>
+          <div>
+            <span>尝试</span>
+            <strong id="attempts-value">0</strong>
+          </div>
+          <div>
+            <span>正确</span>
+            <strong id="matches-value">0 / 16</strong>
+          </div>
+          <div>
+            <span>错误</span>
+            <strong id="mistakes-value">0</strong>
+          </div>
+          <div>
+            <span>得分</span>
+            <strong id="score-value">0</strong>
+          </div>
+        </div>
+
+        <div class="status-line" id="status-line" role="status" aria-live="polite">
+          翻开两张卡牌，找到正确组合。
+        </div>
+
+        <div class="board" id="board" aria-label="快捷键翻牌区域"></div>
+      </section>
+
+      <section class="screen result-screen" id="result-screen" aria-labelledby="result-title">
+        <div class="result-head">
+          <p class="eyebrow">Completed</p>
+          <h2 id="result-title">恭喜通关！</h2>
+          <p>你完成了本轮 PS 快捷键挑战。</p>
+        </div>
+
+        <div class="result-rating" id="rating-value">快捷键熟练工</div>
+
+        <div class="result-grid">
+          <div>
+            <span>用时</span>
+            <strong id="final-time">00:00</strong>
+          </div>
+          <div>
+            <span>尝试次数</span>
+            <strong id="final-attempts">0 次</strong>
+          </div>
+          <div>
+            <span>错误次数</span>
+            <strong id="final-mistakes">0 次</strong>
+          </div>
+          <div>
+            <span>得分</span>
+            <strong id="final-score">0 分</strong>
+          </div>
+        </div>
+
+        <section class="review" aria-labelledby="review-title">
+          <h3 id="review-title">错题复习</h3>
+          <div id="review-list"></div>
+        </section>
+
+        <div class="hero-actions">
+          <button class="button primary" id="play-again-button" type="button">再玩一次</button>
+          <button class="button ghost" id="view-shortcuts-button" type="button">查看全部快捷键</button>
+        </div>
+      </section>
+
+      <dialog class="shortcut-dialog" id="shortcut-dialog" aria-labelledby="shortcut-dialog-title">
+        <div class="dialog-head">
+          <h2 id="shortcut-dialog-title">全部快捷键</h2>
+          <button class="icon-button" id="close-shortcuts-button" type="button" aria-label="关闭">
+            <span aria-hidden="true">×</span>
+          </button>
+        </div>
+        <div class="shortcut-list" id="shortcut-list"></div>
+      </dialog>
+    </main>
+
+    <script src="./game.js" defer></script>
+  </body>
+</html>
